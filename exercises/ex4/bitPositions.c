@@ -61,9 +61,28 @@ void printBP(int);
 int getLSBpos(int a) {
    /*** Problem 2.2:                   ***/
    /*** vvvv MODIFY HERE vvvv          ***/
+   int pos;
+   if (a == 0){
+      return -1;
+   }
+   if (a > 0){
+      if (a % 2 == 0){
+         return getLSBpos(a/2) + 1;
+      }
+   }
+   if (a < 0){
+      if (a == -1){
+         return 0;
+      } 
+      else if (a % 2 == 0)
+      {
+         return getLSBpos((a-1)/2) + 1;
+      }
+   }
+   
    return 0;
    /*** ^^^^ MODIFY HERE ^^^^          ***/
-} 
+}
 
 /*********************************
 * Problem 2.3
@@ -140,6 +159,9 @@ int main() {
    printf("getLSBpos(%3d) = %3d\n", 0 , getLSBpos( 0));
    printf("getLSBpos(%3d) = %3d\n", 17, getLSBpos(17));
    printf("getLSBpos(%3d) = %3d\n", -1, getLSBpos(-1));
+   printf("getLSBpos(%3d) = %3d\n", -2, getLSBpos(-2));
+   printf("getLSBpos(%3d) = %3d\n", -3, getLSBpos(-3));
+   printf("getLSBpos(%3d) = %3d\n", -6, getLSBpos(-6));
    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
    
    printf("\nTests for Problem 2.3:\n");
@@ -179,9 +201,6 @@ int main() {
    printf("getNextBitPos(%3d) = %3d\n", 44,getNextBitPos(44));
    printf("printBP(%3d) (after calling getNextBitPos):\n",  44);
    printBP(44);
-
-
    return 0;
-
 }
 
