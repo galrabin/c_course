@@ -99,11 +99,6 @@ int multModulo(int a, int b, int n) {
 }
 
 
-
-
-
-
-
 int main() {
    printf("Tests for Problem 1.2:\n");
    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
