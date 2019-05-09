@@ -53,8 +53,7 @@ int multModulo(int a, int b, int n);
 *********************************/
 double multToDouble(int a, int b) {
    /***                  Problem 1.2:                   ***/
-   double result = (double) a * b;
-   return result;    /*** <-- ONLY MODIFY EXPRESSION COMPUTED FOR RETURN STATEMENT ***/  
+   return a * b;    /*** <-- ONLY MODIFY EXPRESSION COMPUTED FOR RETURN STATEMENT ***/  
 }
 
 /*********************************
@@ -71,11 +70,12 @@ int multToInt(int a, int b) {
    double x = multToDouble(a,b);
    /***                  Problem 1.3:                   ***/
    /***             vvvv MODIFY HERE vvvv               ***/
-   /***             ^^^^ MODIFY HERE ^^^^               ***/
    if (x >= 2147483648 || x <= -2147483648){
       x = 0;
    }
-   return (int)x;
+   return (int) x;
+   /***             ^^^^ MODIFY HERE ^^^^               ***/
+   return 0;
 }
 
 
@@ -90,16 +90,19 @@ int multToInt(int a, int b) {
 * makes sure not to overflow in every step
 *********************************/
 int multModulo(int a, int b, int n) {
-   int a1 = a % n;
-   int b1 = b % n;
-   double mulitply = multToDouble(a1,b1);
-   double product = mulitply - multToDouble(((int)(mulitply/n)),n);
+   double x = multToDouble(a%n,b%n);
    /***                  Problem 1.4:                   ***/
-   return (int)product;    /*** <-- ONLY MODIFY EXPRESSION COMPUTED FOR RETURN STATEMENT ***/
+   return ((int)x) % n;    /*** <-- ONLY MODIFY EXPRESSION COMPUTED FOR RETURN STATEMENT ***/
 }
 
 
+
+
+
+
+
 int main() {
+   
    printf("Tests for Problem 1.2:\n");
    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
    printf("multToDouble(%7d,%7d) = %15.1lf\n", 2, -3, multToDouble(2,-3));
