@@ -53,7 +53,7 @@ int multModulo(int a, int b, int n);
 *********************************/
 double multToDouble(int a, int b) {
    /***                  Problem 1.2:                   ***/
-   return a * b;    /*** <-- ONLY MODIFY EXPRESSION COMPUTED FOR RETURN STATEMENT ***/  
+   return (double)a * b;    /*** <-- ONLY MODIFY EXPRESSION COMPUTED FOR RETURN STATEMENT ***/
 }
 
 /*********************************
@@ -92,7 +92,7 @@ int multToInt(int a, int b) {
 int multModulo(int a, int b, int n) {
    double x = multToDouble(a%n,b%n);
    /***                  Problem 1.4:                   ***/
-   return ((int)x) % n;    /*** <-- ONLY MODIFY EXPRESSION COMPUTED FOR RETURN STATEMENT ***/
+   return x - ((int)(x/n) * (double)n);    /*** <-- ONLY MODIFY EXPRESSION COMPUTED FOR RETURN STATEMENT ***/
 }
 
 
