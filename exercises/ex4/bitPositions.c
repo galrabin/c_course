@@ -61,26 +61,16 @@ void printBP(int);
 int getLSBpos(int a) {
    /*** Problem 2.2:                   ***/
    /*** vvvv MODIFY HERE vvvv          ***/
-   int pos;
-   if (a == 0){
-      return -1;
-   }
-   if (a > 0){
-      if (a % 2 == 0){
-         return getLSBpos(a/2) + 1;
-      }
-   }
-   if (a < 0){
-      if (a == -1){
-         return 0;
-      } 
-      else if (a % 2 == 0)
-      {
-         return getLSBpos((a-1)/2) + 1;
-      }
-   }
-   
-   return 0;
+     if (a == 0){
+         return -1;
+     } else {
+         if (a & 1 == 1) {
+             return 0;
+         } else {
+             return getLSBpos(a / 2) + 1;
+         }
+     }
+
    /*** ^^^^ MODIFY HERE ^^^^          ***/
 }
 
@@ -94,7 +84,21 @@ int getLSBpos(int a) {
 int getMSBpos(int a)  {
    /*** Problem 2.3:                   ***/
    /*** vvvv MODIFY HERE vvvv          ***/
-   return 0;
+   if (a == 0){
+       return -1;
+   } else {
+       if (a > 0) {
+           int move = getLSBpos(a) + 1;
+           if (a == 1) {
+               a = 0;
+           } else {
+               a = a >> move;
+           }
+           return getMSBpos(a) + move;
+       } else if (a < 0){
+           return 31;
+       }
+   }
    /*** ^^^^ MODIFY HERE ^^^^          ***/
 }
 
@@ -121,8 +125,21 @@ int getNextBitPos(int a) {
 
    /***             vvvv MODIFY HERE vvvv               ***/
    /***             ^^^^ MODIFY HERE ^^^^               ***/
-
-   return last_pos;
+   if (a != last_a){
+       last_a = a;
+       last_pos = getLSBpos(a);
+       return last_pos;
+   }
+   if (last_pos == getMSBpos(a)) {
+       last_pos = -1;
+       return last_pos;
+   } else {
+       int move = last_pos + 1;
+       a = a >> move;
+       int next_one = getLSBpos(a);
+       last_pos += next_one + 1;
+       return last_pos;
+   }
 }
 
 /*********************************
@@ -139,6 +156,12 @@ int getNextBitPos(int a) {
 void printBP(int a){
    /***             vvvv MODIFY HERE vvvv               ***/
    /***             ^^^^ MODIFY HERE ^^^^               ***/
+   int current = getNextBitPos(a);
+   while (current != -1){
+       printf("%d ", current);
+       current = getNextBitPos(a);
+   }
+   printf("\n");
 }
 
 
@@ -159,9 +182,6 @@ int main() {
    printf("getLSBpos(%3d) = %3d\n", 0 , getLSBpos( 0));
    printf("getLSBpos(%3d) = %3d\n", 17, getLSBpos(17));
    printf("getLSBpos(%3d) = %3d\n", -1, getLSBpos(-1));
-   printf("getLSBpos(%3d) = %3d\n", -2, getLSBpos(-2));
-   printf("getLSBpos(%3d) = %3d\n", -3, getLSBpos(-3));
-   printf("getLSBpos(%3d) = %3d\n", -6, getLSBpos(-6));
    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n");
    
    printf("\nTests for Problem 2.3:\n");
