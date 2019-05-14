@@ -190,3 +190,128 @@ int findFermatWitness(int n, int numReps){
     }
     return 0;
 }
+
+
+
+/*********************************
+* Problem 2.2
+* computes the LSB of a given number
+* param:
+* a (int)
+* returns the LSB of a
+*********************************/
+int getLSBpos(int a) {
+    /*** Problem 2.2:                   ***/
+    /*** vvvv MODIFY HERE vvvv          ***/
+    if (a == 0){
+        return -1;
+    } else {
+        if ((a & 1) == 1) {
+            return 0;
+        } else {
+            return getLSBpos(a / 2) + 1;
+        }
+    }
+    return 0;
+    /*** ^^^^ MODIFY HERE ^^^^          ***/
+}
+
+/*********************************
+* Problem 2.3
+* computes the MSB of a given number
+* param:
+* a (int)
+* returns the MSB of a
+*********************************/
+int getMSBpos(int a)  {
+    /*** Problem 2.3:                   ***/
+    /*** vvvv MODIFY HERE vvvv          ***/
+    if (a == 0){
+        return -1;
+    } else {
+        if (a > 0) {
+            int move = getLSBpos(a) + 1;
+            if (a == 1) {
+                a = 0;
+            } else {
+                a = a >> move;
+            }
+            return getMSBpos(a) + move;
+        } else if (a < 0){
+            return 31;
+        }
+    }
+    return 0;
+    /*** ^^^^ MODIFY HERE ^^^^          ***/
+}
+
+
+/*********************************
+* Problem 2.4
+* computes the next bit turned on
+* in the binary representation
+* of a given number
+* param:
+* a (int)
+* if parameter a equals the last number that the function was called with,
+* then return the next bit position in bp(a).
+* if previous bit position was the MSB, then reutrn -1.
+* if parameter a is differnt from the last number that the function was called with,
+* or the last position returned was -1, then return the LSB.
+*********************************/
+int getNextBitPos(int a) {
+    /*** Problem 2.3:                                     ***/
+    /*** last a the function was called with              ***/
+    static int last_a   =  0;
+    /*** last position that the function returned         ***/
+    static int last_pos = -1;
+
+    /***             vvvv MODIFY HERE vvvv               ***/
+    if (a != last_a){
+        last_a = a;
+        last_pos = getLSBpos(a);
+        return last_pos;
+    }
+    if (last_pos == getMSBpos(a)) {
+        last_pos = -1;
+        return last_pos;
+    } else {
+        int move = last_pos + 1;
+        a = a >> move;
+        int next_one = getLSBpos(a);
+        last_pos += next_one + 1;
+        return last_pos;
+    }
+    /***             ^^^^ MODIFY HERE ^^^^               ***/
+
+    return last_pos;
+}
+
+/*********************************
+* Problem 2.5
+* prints all bit positions turned on
+* in the binary representation
+* of a given number
+* param:
+* a (int)
+* uses the following format: bp(a) = pos1 pos2 ...
+* there should be a single space character between every two positions
+* and a newline should be printed in the end.
+*********************************/
+void printBP(int a){
+    /***             vvvv MODIFY HERE vvvv               ***/
+    int lsb = getLSBpos(a);
+    int current = getNextBitPos(a);
+    if (lsb != current){
+        while (lsb != current){
+            current = getNextBitPos(a);
+        }
+    }
+    printf("bp(%d) =",a);
+    while (current != -1){
+        printf(" %d", current);
+        current = getNextBitPos(a);
+    }
+    printf("\n");
+    /***             ^^^^ MODIFY HERE ^^^^               ***/
+}
