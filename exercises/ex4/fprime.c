@@ -81,7 +81,7 @@ int main() {
         if (test != 0){
             printf("The number %d is a Fermat witness that number %d is not prime.", test, (int)prime_user);
         } else {
-            printf("The number %d is pottentially prime, No Fermat witness found.", (int)prime_user);
+            printf("The number %d is potentially prime, No Fermat witness found.", (int)prime_user);
         }
     }
 
