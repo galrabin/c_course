@@ -97,7 +97,7 @@ int main() {
 //    printf("expMod_efficient(%4d, %4d, %4d) = %4d\n", 10,  0,  5, expMod_efficient(  10,   0,  5));
 //    printf("expMod_efficient(%4d, %4d, %4d) = %4d\n", 10, -1,  5, expMod_efficient(  10,  -1,  5));
 //    printf("expMod_efficient(%4d, %4d, %4d) = %4d\n", 10,  3,  0, expMod_efficient(  10,   3,  0));
-    printf("expMod_efficient(%4d, %4d, %4d) = %4d\n",-10,  3,  2, expMod_efficient( -10,   3,  2));
+//    printf("expMod_efficient(%4d, %4d, %4d) = %4d\n",-10,  3,  2, expMod_efficient( -10,   3,  2));
     return 0;
 }
 
