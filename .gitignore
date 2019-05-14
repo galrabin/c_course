@@ -1,2 +1,4 @@
 desktop.ini
 .vscode
+cmake-build-debug\
+CMakeLists.txt
