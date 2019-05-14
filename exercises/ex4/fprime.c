@@ -79,7 +79,7 @@ int main() {
         int numReps = 100;
         int test = findFermatWitness((int)prime_user,numReps);
         if (test != 0){
-            printf("The number %d is a Fermat witness that number %d is not prime.", test, prime_user);
+            printf("The number %d is a Fermat witness that number %f is not prime.", test, prime_user);
         } else {
             printf("The number %d is pottentially prime, No Fermat witness found.", (int)prime_user);
         }
