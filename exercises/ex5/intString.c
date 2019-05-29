@@ -51,13 +51,13 @@ int stringToInt(const char *str)
     }
 
     // convert to int
-    int degree = 1;
+    double degree = 1;
     for (int i = 1; i < size; i++)
     {
         degree *= 10;
     }
 
-    int converted = 0;
+    double converted = 0;
     while (curChar != '\0')
     {
         switch (curChar)
@@ -98,20 +98,32 @@ int stringToInt(const char *str)
         }
         location++;
         curChar = back_up[location];
-        degree /= 10;
+        degree /= 10.0;
     }
 
-    if (symbol)
+    if (!symbol)
     {
         converted *= -1;
     }
 
-    return converted;
+    if (converted > 2147483647 || converted < -2147483648)
+    {
+        return 0;
+    }
+
+    int to = (int)converted;
+
+    return to;
 }
 
 int main()
 {
-    char s[] = "34";
-    printf("Converted : %d", stringToInt(s));
+    printf("Converted %s : %d\n", "34987", stringToInt("34987"));
+    printf("Converted %s : %d\n", "0", stringToInt("0"));
+    printf("Converted %s : %d\n", "-2147483648", stringToInt("-2147483648"));
+    printf("Converted %s : %d\n", "2147483648", stringToInt("2147483648"));
+    printf("Converted %s : %d\n", "--3", stringToInt("--3"));
+    printf("Converted %s : %d\n", ".765", stringToInt(".765"));
+    printf("Converted %s : %d\n", "765\0.", stringToInt("765\0."));
     return 0;
 }
