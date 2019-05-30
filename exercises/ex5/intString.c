@@ -51,7 +51,6 @@ int stringToInt(const char *str)
 
     while (str[i])
     {
-        char digit = str[i];
         if (str[i] == '-' && i == 0)
         {
             degree *= 10;
