@@ -179,7 +179,7 @@ char *intToStringRecursion(int num, char *buffer)
     return buffer;
 }
 
-char *intToString(int num, char **buffer)
+char *intToString(int num, char *buffer)
 {
     char *last_cell;
     if (num == 0)
