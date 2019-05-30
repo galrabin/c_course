@@ -141,7 +141,7 @@ int isIntString(const char *str)
 
 /*********************************
 * Problem 1.3
-* Chack string if valid int
+* Check string if valid int
 * params:
 * num (integer)
 * str (pointer)
@@ -182,11 +182,12 @@ char *intToString(int num, char *buffer)
 
 /*********************************
 * Problem 1.4
-* Chack string if valid int
+* Computing integer operations recieved as strings
 * params:
-* num (integer)
-* str (pointer)
-* returns string of num
+* intStr1 (pointer)
+* intStr2 (pointer)
+* op (char)
+* returns 1 if valid num or operation 0 if not
 *********************************/
 // Compile === gcc -Wall -D TEST_1_4 /share/ex_data/ex5/test_ex5.c intString.c -o test_ex5_1_4
 // Test === test_ex5_1_4 , compare to = /share/ex_data/ex5/test_ex5_1_4.out
