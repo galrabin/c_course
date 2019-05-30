@@ -228,10 +228,10 @@ int doOp(char *intStr1, char *intStr2, char op)
     return 1;
 }
 
-int main(int argc, char const *argv[])
-{
-    char *int1 = "12";
-    char *int2 = "13";
-    doOp(int1,int2,'+');
-    printf("%s",int1);
-}
+// int main(int argc, char const *argv[])
+// {
+//     char *int1 = "12";
+//     char *int2 = "13";
+//     doOp(int1,int2,'+');
+//     printf("%s",int1);
+// }
