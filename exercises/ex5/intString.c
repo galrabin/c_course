@@ -193,7 +193,7 @@ char *intToString(int num, char *buffer)
 // Test === test_ex5_1_4 , compare to = /share/ex_data/ex5/test_ex5_1_4.out
 int doOp(char *intStr1, char *intStr2, char op)
 {
-    if (isIntString(intStr1) || isIntString(intStr2))
+    if (!(isIntString(intStr1)) || !(isIntString(intStr2)))
     {
         return 0;
     }
@@ -228,15 +228,10 @@ int doOp(char *intStr1, char *intStr2, char op)
     return 1;
 }
 
-// int main(int argc, char const *argv[])
-// {
-//     printf("#############################################\n");
-//     printf("#############String to integer###############\n");
-//     printf("#############################################\n");
-//     printf("%s validation suppote to be %d : %d\n", "34987", 1, isIntString("34987"));
-//     printf("%s validation suppote to be %d : %d\n", "+34987", 0, isIntString("+34987"));
-//     printf("%s validation suppote to be %d : %d\n", "0", 1, isIntString("0"));
-//     printf("%s validation suppote to be %d : %d\n", "-0", 0, isIntString("-0"));
-//     printf("%s validation suppote to be %d : %d\n", "00", 0, isIntString("00"));
-//     printf("%s validation suppote to be %d : %d\n\n", "765\0.", 1, isIntString("765\0."));
-// }
+int main(int argc, char const *argv[])
+{
+    char *int1 = "12";
+    char *int2 = "13";
+    doOp(int1,int2,'+');
+    printf("%s",int1);
+}
