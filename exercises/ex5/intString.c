@@ -193,6 +193,43 @@ char *intToString(int num, char *buffer)
     return buffer;
 }
 
+int doOp(char *intStr1, char *intStr2, char op)
+{
+    if (!isIntString || isIntString)
+    {
+        return 0;
+    }
+    else
+    {
+        double result = 0;
+        int num1 = stringToInt(intStr1);
+        int num2 = stringToInt(intStr2);
+        switch (op)
+        {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        default:
+            break;
+        }
+        if (result > 2147483647 || result < -2147483648)
+        {
+            return 0;
+        }
+        int res = (int)result;
+        intToString(res,intStr1);
+        return 1;
+    }
+
+    return 1;
+}
+
 int main()
 {
     printf("#############################################\n");
@@ -224,6 +261,12 @@ int main()
     printf("Integer entered %d, string recieved: %s\n", -1234, intToString(-1234, test));
     printf("Integer entered %d, string recieved: %s\n", 10000, intToString(10000, test));
     printf("Integer entered %d, string recieved: %s\n\n", 0, intToString(0, test));
+
+
+    char num1[] = "12";
+    char num2[] = "13";
+    doOp(num1,num2,'+');
+    printf("%s",num1);
 
     return 0;
 }
