@@ -139,15 +139,15 @@ int isIntString(const char *str)
     return 1;
 }
 
-int main(int argc, char const *argv[])
-{
-    printf("#############################################\n");
-    printf("#############String to integer###############\n");
-    printf("#############################################\n");
-    printf("%s validation suppote to be %d : %d\n", "34987", 1, isIntString("34987"));
-    printf("%s validation suppote to be %d : %d\n", "+34987", 0, isIntString("+34987"));
-    printf("%s validation suppote to be %d : %d\n", "0", 1, isIntString("0"));
-    printf("%s validation suppote to be %d : %d\n", "-0", 0, isIntString("-0"));
-    printf("%s validation suppote to be %d : %d\n", "00", 0, isIntString("00"));
-    printf("%s validation suppote to be %d : %d\n\n", "765\0.", 1, isIntString("765\0."));
-}
+// int main(int argc, char const *argv[])
+// {
+//     printf("#############################################\n");
+//     printf("#############String to integer###############\n");
+//     printf("#############################################\n");
+//     printf("%s validation suppote to be %d : %d\n", "34987", 1, isIntString("34987"));
+//     printf("%s validation suppote to be %d : %d\n", "+34987", 0, isIntString("+34987"));
+//     printf("%s validation suppote to be %d : %d\n", "0", 1, isIntString("0"));
+//     printf("%s validation suppote to be %d : %d\n", "-0", 0, isIntString("-0"));
+//     printf("%s validation suppote to be %d : %d\n", "00", 0, isIntString("00"));
+//     printf("%s validation suppote to be %d : %d\n\n", "765\0.", 1, isIntString("765\0."));
+// }
