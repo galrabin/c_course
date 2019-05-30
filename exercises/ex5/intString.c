@@ -147,8 +147,8 @@ int isIntString(const char *str)
 * str (pointer)
 * returns string of num
 *********************************/
-// Compile === gcc -Wall -D TEST_1_2 /share/ex_data/ex5/test_ex5.c intString.c -o test_ex5_1_2
-// Test === test_ex5_1_1 , compare to = /share/ex_data/ex5/test_ex5_1_2.out
+// Compile === gcc -Wall -D TEST_1_3 /share/ex_data/ex5/test_ex5.c intString.c -o test_ex5_1_3
+// Test === test_ex5_1_3 , compare to = /share/ex_data/ex5/test_ex5_1_3.out
 char *intToStringRecursion(int num, char *buffer)
 {
     if (num < 0)
