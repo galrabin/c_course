@@ -232,46 +232,46 @@ int doOp(char *intStr1, char *intStr2, char op)
 
 int main()
 {
-    printf("#############################################\n");
-    printf("#############String to integer###############\n");
-    printf("#############################################\n");
-    printf("Converted %s : %d\n", "34987", stringToInt("34987"));
-    printf("Converted %s : %d\n", "0", stringToInt("0"));
-    printf("Converted %s : %d\n", "-2147483648", stringToInt("-2147483648"));
-    printf("C onverted %s : %d\n", "2147483648", stringToInt("2147483648"));
-    printf("Converted %s : %d\n", "--3", stringToInt("--3"));
-    printf("Converted %s : %d\n", ".765", stringToInt(".765"));
-    printf("Converted %s : %d\n\n", "765\0.", stringToInt("765\0."));
+    // printf("#############################################\n");
+    // printf("#############String to integer###############\n");
+    // printf("#############################################\n");
+    // printf("Converted %s : %d\n", "34987", stringToInt("34987"));
+    // printf("Converted %s : %d\n", "0", stringToInt("0"));
+    // printf("Converted %s : %d\n", "-2147483648", stringToInt("-2147483648"));
+    // printf("C onverted %s : %d\n", "2147483648", stringToInt("2147483648"));
+    // printf("Converted %s : %d\n", "--3", stringToInt("--3"));
+    // printf("Converted %s : %d\n", ".765", stringToInt(".765"));
+    // printf("Converted %s : %d\n\n", "765\0.", stringToInt("765\0."));
 
-    printf("#############################################\n");
-    printf("#############String to integer###############\n");
-    printf("#############################################\n");
-    printf("%s validation suppote to be %d : %d\n", "34987", 1, isIntString("34987"));
-    printf("%s validation suppote to be %d : %d\n", "+34987", 0, isIntString("+34987"));
-    printf("%s validation suppote to be %d : %d\n", "0", 1, isIntString("0"));
-    printf("%s validation suppote to be %d : %d\n", "-0", 0, isIntString("-0"));
-    printf("%s validation suppote to be %d : %d\n", "00", 0, isIntString("00"));
-    printf("%s validation suppote to be %d : %d\n\n", "765\0.", 1, isIntString("765\0."));
+    // printf("#############################################\n");
+    // printf("#############String to integer###############\n");
+    // printf("#############################################\n");
+    // printf("%s validation suppote to be %d : %d\n", "34987", 1, isIntString("34987"));
+    // printf("%s validation suppote to be %d : %d\n", "+34987", 0, isIntString("+34987"));
+    // printf("%s validation suppote to be %d : %d\n", "0", 1, isIntString("0"));
+    // printf("%s validation suppote to be %d : %d\n", "-0", 0, isIntString("-0"));
+    // printf("%s validation suppote to be %d : %d\n", "00", 0, isIntString("00"));
+    // printf("%s validation suppote to be %d : %d\n\n", "765\0.", 1, isIntString("765\0."));
 
-    printf("#############################################\n");
-    printf("#############Integer to String###############\n");
-    printf("#############################################\n");
-    char test[33];
-    printf("Integer entered %d, string recieved: %s\n", 1234, intToString(1234, test));
-    printf("Integer entered %d, string recieved: %s\n", -1234, intToString(-1234, test));
-    printf("Integer entered %d, string recieved: %s\n", 10000, intToString(10000, test));
-    printf("Integer entered %d, string recieved: %s\n\n", 0, intToString(0, test));
+    // printf("#############################################\n");
+    // printf("#############Integer to String###############\n");
+    // printf("#############################################\n");
+    // char test[33];
+    // printf("Integer entered %d, string recieved: %s\n", 1234, intToString(1234, test));
+    // printf("Integer entered %d, string recieved: %s\n", -1234, intToString(-1234, test));
+    // printf("Integer entered %d, string recieved: %s\n", 10000, intToString(10000, test));
+    // printf("Integer entered %d, string recieved: %s\n\n", 0, intToString(0, test));
 
-    printf("#############################################\n");
-    printf("#############Arithmetic Operations###########\n");
-    printf("#############################################\n");
-    char num1[] = "12";
-    char num2[] = "13";
-    doOp(num1, num2, '+');
-    printf("12 + 13 = %s\n", num1);
-    char num3[] = "gdfgfd";
-    char num4[] = "2";
-    doOp(num3, num4, '*');
-    printf("23 * 2 = %s", num3);
+    // printf("#############################################\n");
+    // printf("#############Arithmetic Operations###########\n");
+    // printf("#############################################\n");
+    // char num1[] = "12";
+    // char num2[] = "13";
+    // doOp(num1, num2, '+');
+    // printf("12 + 13 = %s\n", num1);
+    // char num3[] = "gdfgfd";
+    // char num4[] = "2";
+    // doOp(num3, num4, '*');
+    // printf("23 * 2 = %s", num3);
     return 0;
 }
