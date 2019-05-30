@@ -140,7 +140,7 @@ int isIntString(const char *str)
 }
 
 /*********************************
-* Problem 1.2
+* Problem 1.3
 * Chack string if valid int
 * params:
 * num (integer)
@@ -178,6 +178,53 @@ char *intToString(int num, char *buffer)
     last_cell = intToStringRecursion(num, buffer);
     last_cell[0] = '\0';
     return buffer;
+}
+
+/*********************************
+* Problem 1.4
+* Chack string if valid int
+* params:
+* num (integer)
+* str (pointer)
+* returns string of num
+*********************************/
+// Compile === gcc -Wall -D TEST_1_4 /share/ex_data/ex5/test_ex5.c intString.c -o test_ex5_1_4
+// Test === test_ex5_1_4 , compare to = /share/ex_data/ex5/test_ex5_1_4.out
+int doOp(char *intStr1, char *intStr2, char op)
+{
+    if (!isIntString(intStr1) || isIntString(intStr2))
+    {
+        return 0;
+    }
+    else
+    {
+        double result = 0;
+        int num1 = stringToInt(intStr1);
+        int num2 = stringToInt(intStr2);
+        switch (op)
+        {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        default:
+            break;
+        }
+        if (result > 2147483647 || result < -2147483648)
+        {
+            return 0;
+        }
+        int res = (int)result;
+        intToString(res, intStr1);
+        return 1;
+    }
+
+    return 1;
 }
 
 // int main(int argc, char const *argv[])
