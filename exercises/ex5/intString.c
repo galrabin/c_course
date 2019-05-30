@@ -223,11 +223,11 @@ int doOp(char *intStr1, const char *intStr2, char op)
     return 1;
 }
 
-int main(int argc, char const *argv[])
-{
-    char intStr1[] = "155";
-    char intStr2[] = "-467";
-    doOp(intStr1,intStr2,'-');
-    printf("%s\n",intStr1);
-    return 0;
-}
+// int main(int argc, char const *argv[])
+// {
+//     char intStr1[] = "155";
+//     char intStr2[] = "-467";
+//     doOp(intStr1,intStr2,'-');
+//     printf("%s\n",intStr1);
+//     return 0;
+// }
