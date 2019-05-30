@@ -50,6 +50,11 @@ int stringToInt(const char *str)
 
     int size = strlen(str);
 
+    if (!isIntString(str))
+    {
+        return 0;
+    }
+
     if (str[0] == 45)
     {
         i = 1;
@@ -233,6 +238,6 @@ int doOp(char *intStr1, const char *intStr2, char op)
 
 // int main(int argc, char const *argv[])
 // {
-//     printf("%d", stringToInt("-3"));
+//     printf("%d", stringToInt("03"));
 //     return 0;
 // }
