@@ -195,7 +195,7 @@ char *intToString(int num, char *buffer)
 
 int doOp(char *intStr1, char *intStr2, char op)
 {
-    if (!isIntString || isIntString)
+    if (!isIntString || !isIntString)
     {
         return 0;
     }
@@ -223,7 +223,7 @@ int doOp(char *intStr1, char *intStr2, char op)
             return 0;
         }
         int res = (int)result;
-        intToString(res,intStr1);
+        intToString(res, intStr1);
         return 1;
     }
 
@@ -262,11 +262,16 @@ int main()
     printf("Integer entered %d, string recieved: %s\n", 10000, intToString(10000, test));
     printf("Integer entered %d, string recieved: %s\n\n", 0, intToString(0, test));
 
-
+    printf("#############################################\n");
+    printf("#############Arithmetic Operations###########\n");
+    printf("#############################################\n");
     char num1[] = "12";
     char num2[] = "13";
-    doOp(num1,num2,'+');
-    printf("%s",num1);
-
+    doOp(num1, num2, '+');
+    printf("12 + 13 = %s\n", num1);
+    char num3[] = "23";
+    char num4[] = "2";
+    doOp(num3, num4, '*');
+    printf("23 * 2 = %s", num3);
     return 0;
 }
