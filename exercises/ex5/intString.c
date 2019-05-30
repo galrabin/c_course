@@ -116,26 +116,21 @@ int isIntString(const char *str)
 {
     int size = strlen(str);
     int i = 0;
-    while (str[i])
+    for (int i = 0; i < size; i++)
     {
-        if (i < size)
+        int ascii = str[i];
+        if (ascii == 45 && i == 0)
         {
-            int digit = str[i];
-            if ((digit < 48 || digit > 57) || (i == 0 && str[i] == '0' && size > 1))
-            {
-                if (str[i] != '-')
-                {
-                    return 0;
-                }
-                else if (i != 0 && str[i + 1] != '0')
-                {
-                    return 0;
-                }
-                return 0;
-            }
+            continue;
         }
-        i++;
+        if (ascii <= 57 && 48 <= ascii)
+        {
+            continue;
+        }
+        printf("%c\n", str[i]);
+        return 0;
     }
+
     return 1;
 }
 
@@ -191,7 +186,7 @@ char *intToString(int num, char *buffer)
 *********************************/
 // Compile === gcc -Wall -D TEST_1_4 /share/ex_data/ex5/test_ex5.c intString.c -o test_ex5_1_4
 // Test === test_ex5_1_4 , compare to = /share/ex_data/ex5/test_ex5_1_4.out
-int doOp(char *intStr1, char *intStr2, char op)
+int doOp(char *intStr1, const char *intStr2, char op)
 {
     if (!(isIntString(intStr1)) || !(isIntString(intStr2)))
     {
@@ -228,10 +223,11 @@ int doOp(char *intStr1, char *intStr2, char op)
     return 1;
 }
 
-// int main(int argc, char const *argv[])
-// {
-//     char *int1 = "12";
-//     char *int2 = "13";
-//     doOp(int1,int2,'+');
-//     printf("%s",int1);
-// }
+int main(int argc, char const *argv[])
+{
+    char intStr1[] = "155";
+    char intStr2[] = "-467";
+    doOp(intStr1,intStr2,'-');
+    printf("%s\n",intStr1);
+    return 0;
+}
