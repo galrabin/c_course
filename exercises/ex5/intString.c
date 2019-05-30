@@ -45,31 +45,24 @@ int isIntString(const char *str);
 int stringToInt(const char *str)
 {
     int i = 0;
-    double degree = 1;
-    double convert = 0;
     int sign = 1;
-    int size = strlen(str) - 1;
-    if (str[0] == '-')
+    double degree = 0.1;
+
+    int size = strlen(str);
+
+    if (str[0] == 45)
     {
         i = 1;
         sign = -1;
     }
 
-    while (str[i])
+    for (; i < size; i++)
     {
-        if (str[i] == '-' && i == 0)
+        if (degree == 0.1 && str[i] == '0')
         {
-            degree *= 10;
+            continue;
         }
-        else if (str[i] > '9' || str[i] < '0')
-        {
-            return 0;
-        }
-        else if (i < size)
-        {
-            degree *= 10;
-        }
-        i++;
+        degree *= 10;
     }
 
     if (sign == -1)
@@ -81,25 +74,28 @@ int stringToInt(const char *str)
         i = 0;
     }
 
-    while (str[i])
+    double result = 0;
+    for (; i < size; i++)
     {
-        double num = (double)(str[i] - 48) * degree;
-        convert += num;
+        if (result == 0 && str[i] == '0')
+        {
+            continue;
+        }
+        result += degree * ((int)str[i] - 48);
         degree /= 10;
-        i++;
     }
 
     if (sign == -1)
     {
-        convert *= -1;
+        result *= -1;
     }
 
-    if (convert > MAX_INT || convert < MIN_INT)
+    if (result > MAX_INT || result < MIN_INT)
     {
         return 0;
     }
 
-    return convert;
+    return (int)result;
 }
 
 /*********************************
@@ -237,10 +233,6 @@ int doOp(char *intStr1, const char *intStr2, char op)
 
 // int main(int argc, char const *argv[])
 // {
-//     // char intStr1[] = "155";
-//     // char intStr2[] = "-467";
-//     // doOp(intStr1,intStr2,'-');
-//     // printf("%s\n",intStr1);
-//     printf("%d",isIntString("001"));
+//     printf("%d", stringToInt("-3"));
 //     return 0;
 // }
