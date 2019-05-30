@@ -95,18 +95,3 @@ int stringToInt(const char *str)
 
     return convert;
 }
-
-int main(int argc, char const *argv[])
-{
-    printf("#############################################\n");
-    printf("#############String to integer###############\n");
-    printf("#############################################\n");
-    printf("Converted %s : %d\n", "34987", stringToInt("34987"));
-    printf("Converted %s : %d\n", "0", stringToInt("0"));
-    printf("Converted %s : %d\n", "-2147483648", stringToInt("-2147483648"));
-    printf("C onverted %s : %d\n", "2147483648", stringToInt("2147483648"));
-    printf("Converted %s : %d\n", "--3", stringToInt("--3"));
-    printf("Converted %s : %d\n", ".765", stringToInt(".765"));
-    printf("Converted %s : %d\n\n", "765\0.", stringToInt("765\0."));
-    return 0;
-}
