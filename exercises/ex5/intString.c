@@ -166,14 +166,14 @@ char *intToStringRecursion(int num, char *buffer)
 {
     if (num < 0)
     {
-        buffer[0]= '-';
+        buffer[0] = (char)'-';
         num *= -1;
         return intToStringRecursion(num, buffer + 1);
     }
     else if (num > 0)
     {
         buffer = intToStringRecursion(num / 10, buffer++);
-        buffer[0] = num % 10 + '0';
+        buffer[0] = (char)(num % 10 + '0');
         return buffer + 1;
     }
     return buffer;
@@ -184,7 +184,7 @@ char *intToString(int num, char **buffer)
     char *last_cell;
     if (num == 0)
     {
-        buffer[0] = '0';
+        buffer[0] = (char)'0';
         buffer[1] = '\0';
         return buffer;
     }
@@ -220,12 +220,10 @@ int main()
     printf("#############Integer to String###############\n");
     printf("#############################################\n");
     char test[33];
-    printf("Integer entered %d, string recieved: %s\n",1234,intToString(1234,&test));
-    printf("Integer entered %d, string recieved: %s\n",-1234,intToString(-1234,&test));
-    printf("Integer entered %d, string recieved: %s\n",10000,intToString(10000,&test));
-    printf("Integer entered %d, string recieved: %s\n\n",0,intToString(0,&test));
-    
+    printf("Integer entered %d, string recieved: %s\n", 1234, intToString(1234, &test));
+    printf("Integer entered %d, string recieved: %s\n", -1234, intToString(-1234, &test));
+    printf("Integer entered %d, string recieved: %s\n", 10000, intToString(10000, &test));
+    printf("Integer entered %d, string recieved: %s\n\n", 0, intToString(0, &test));
 
-    
     return 0;
 }
