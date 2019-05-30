@@ -116,14 +116,116 @@ int stringToInt(const char *str)
     return to;
 }
 
+int isIntString(const char *str)
+{
+    int location = 0;
+    char curChar = str[location];
+    while (curChar != '\0')
+    {
+        switch (curChar)
+        {
+        case '-':
+            if (location != 0)
+            {
+                return 0;
+            }
+        case '0':
+            if (location != 0)
+            {
+                return 0;
+            }
+        case '1':
+            break;
+        case '2':
+            break;
+        case '3':
+            break;
+        case '4':
+            break;
+        case '5':
+            break;
+        case '6':
+            break;
+        case '7':
+            break;
+        case '8':
+            break;
+        case '9':
+            break;
+        default:
+            return 0;
+            break;
+        }
+        location++;
+        curChar = str[location];
+    }
+    return 1;
+}
+
+char *intToStringRecursion(int num, char *buffer)
+{
+    if (num < 0)
+    {
+        buffer[0]= '-';
+        num *= -1;
+        return intToStringRecursion(num, buffer + 1);
+    }
+    else if (num > 0)
+    {
+        buffer = intToStringRecursion(num / 10, buffer++);
+        buffer[0] = num % 10 + '0';
+        return buffer + 1;
+    }
+    return buffer;
+}
+
+char *intToString(int num, char **buffer)
+{
+    char *last_cell;
+    if (num == 0)
+    {
+        buffer[0] = '0';
+        buffer[1] = '\0';
+        return buffer;
+    }
+    last_cell = intToStringRecursion(num, buffer);
+    last_cell[0] = '\0';
+    return buffer;
+}
+
 int main()
 {
+    printf("#############################################\n");
+    printf("#############String to integer###############\n");
+    printf("#############################################\n");
     printf("Converted %s : %d\n", "34987", stringToInt("34987"));
     printf("Converted %s : %d\n", "0", stringToInt("0"));
     printf("Converted %s : %d\n", "-2147483648", stringToInt("-2147483648"));
-    printf("Converted %s : %d\n", "2147483648", stringToInt("2147483648"));
+    printf("C onverted %s : %d\n", "2147483648", stringToInt("2147483648"));
     printf("Converted %s : %d\n", "--3", stringToInt("--3"));
     printf("Converted %s : %d\n", ".765", stringToInt(".765"));
-    printf("Converted %s : %d\n", "765\0.", stringToInt("765\0."));
+    printf("Converted %s : %d\n\n", "765\0.", stringToInt("765\0."));
+
+    printf("#############################################\n");
+    printf("#############String to integer###############\n");
+    printf("#############################################\n");
+    printf("%s validation suppote to be %d : %d\n", "34987", 1, isIntString("34987"));
+    printf("%s validation suppote to be %d : %d\n", "+34987", 0, isIntString("+34987"));
+    printf("%s validation suppote to be %d : %d\n", "0", 1, isIntString("0"));
+    printf("%s validation suppote to be %d : %d\n", "-0", 0, isIntString("-0"));
+    printf("%s validation suppote to be %d : %d\n", "00", 0, isIntString("00"));
+    printf("%s validation suppote to be %d : %d\n\n", "765\0.", 1, isIntString("765\0."));
+
+    printf("#############################################\n");
+    printf("#############Integer to String###############\n");
+    printf("#############################################\n");
+    char test[33];
+    printf("Integer entered %d, string recieved: %s\n",1234,intToString(1234,&test));
+    printf("Integer entered %d, string recieved: %s\n",-1234,intToString(-1234,&test));
+    printf("Integer entered %d, string recieved: %s\n",10000,intToString(10000,&test));
+    printf("Integer entered %d, string recieved: %s\n\n",0,intToString(0,&test));
+    
+
+    
     return 0;
 }
