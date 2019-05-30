@@ -121,6 +121,10 @@ int isIntString(const char *str)
         int ascii = str[i];
         if (ascii == 45 && i == 0)
         {
+            int next_ascii = str[i + 1];
+            if (next_ascii == 48){
+                return 0;
+            }
             continue;
         }
         if (ascii <= 57 && 48 <= ascii)
@@ -236,8 +240,8 @@ int doOp(char *intStr1, const char *intStr2, char op)
     return 1;
 }
 
-// int main(int argc, char const *argv[])
-// {
-//     printf("%d", stringToInt("03"));
-//     return 0;
-// }
+int main(int argc, char const *argv[])
+{
+    printf("%d", isIntString("-0"));
+    return 0;
+}
