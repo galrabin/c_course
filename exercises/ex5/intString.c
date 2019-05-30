@@ -139,6 +139,47 @@ int isIntString(const char *str)
     return 1;
 }
 
+/*********************************
+* Problem 1.2
+* Chack string if valid int
+* params:
+* num (integer)
+* str (pointer)
+* returns string of num
+*********************************/
+// Compile === gcc -Wall -D TEST_1_2 /share/ex_data/ex5/test_ex5.c intString.c -o test_ex5_1_2
+// Test === test_ex5_1_1 , compare to = /share/ex_data/ex5/test_ex5_1_2.out
+char *intToStringRecursion(int num, char *buffer)
+{
+    if (num < 0)
+    {
+        buffer[0] = (char)'-';
+        num *= -1;
+        return intToStringRecursion(num, buffer + 1);
+    }
+    else if (num > 0)
+    {
+        buffer = intToStringRecursion(num / 10, buffer++);
+        buffer[0] = (char)(num % 10 + '0');
+        return buffer + 1;
+    }
+    return buffer;
+}
+
+char *intToString(int num, char *buffer)
+{
+    char *last_cell;
+    if (num == 0)
+    {
+        buffer[0] = (char)'0';
+        buffer[1] = '\0';
+        return buffer;
+    }
+    last_cell = intToStringRecursion(num, buffer);
+    last_cell[0] = '\0';
+    return buffer;
+}
+
 // int main(int argc, char const *argv[])
 // {
 //     printf("#############################################\n");
