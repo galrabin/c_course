@@ -121,7 +121,7 @@ int isIntString(const char *str)
         if (i < size)
         {
             int digit = str[i];
-            if (digit < 48 || digit > 57)
+            if ((digit < 48 || digit > 57) || (i == 0 && str[i] == '0' && size > 1))
             {
                 if (str[i] != '-')
                 {
