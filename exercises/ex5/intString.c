@@ -124,9 +124,15 @@ int isIntString(const char *str)
         }
         if (ascii <= 57 && 48 <= ascii)
         {
+            if (ascii == 48 && i == 0)
+            {
+                int next_ascii = str[i+1];
+                if (next_ascii <= 57 && 48 <= next_ascii){
+                    return 0;
+                }
+            }
             continue;
         }
-        printf("%c\n", str[i]);
         return 0;
     }
 
@@ -224,9 +230,10 @@ int doOp(char *intStr1, const char *intStr2, char op)
 
 // int main(int argc, char const *argv[])
 // {
-//     char intStr1[] = "155";
-//     char intStr2[] = "-467";
-//     doOp(intStr1,intStr2,'-');
-//     printf("%s\n",intStr1);
+//     // char intStr1[] = "155";
+//     // char intStr2[] = "-467";
+//     // doOp(intStr1,intStr2,'-');
+//     // printf("%s\n",intStr1);
+//     printf("%d",isIntString("001"));
 //     return 0;
 // }
