@@ -109,6 +109,9 @@ int stringToInt(const char *str)
 * str (pointer)
 * returns 1 if valid 0 if not
 *********************************/
+// Compile === gcc -Wall -D TEST_1_2 /share/ex_data/ex5/test_ex5.c intString.c -o test_ex5_1_2
+// Test === test_ex5_1_1 , compare to = /share/ex_data/ex5/test_ex5_1_2.out
+
 int isIntString(const char *str)
 {
     int size = strlen(str);
@@ -117,7 +120,7 @@ int isIntString(const char *str)
     {
         if (i < size)
         {
-            int digit = str[i];
+            int digit = str[i] - '0';
             if (digit < 48 || digit > 57)
             {
                 if (str[i] != '-')
@@ -135,3 +138,9 @@ int isIntString(const char *str)
     }
     return 1;
 }
+
+// int main(int argc, char const *argv[])
+// {
+//     printf("hello");
+//     return 0;
+// }
