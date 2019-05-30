@@ -10,9 +10,6 @@
 #define MAX_INT 2147483647
 #define MIN_INT -2147483648
 
-// Compile === gcc -Wall -D TEST_1_1 /share/ex_data/ex5/test_ex5.c intString.c -o test_ex5_1_1
-// Test === test_ex5_1_1 , compare to = /share/ex_data/ex5/test_ex5_1_1.out
-
 /********************************/
 /**    FUNCTION DECLARATIONS   **/
 /********************************/
@@ -24,18 +21,27 @@
 *********************************/
 int stringToInt(const char *str);
 
+/*********************************
+* Problem 1.1
+* Chage Integer type to String 
+* type.
+*********************************/
+int isIntString(const char *str);
+
 /********************************/
 /**    FUNCTION DEFINITIONS    **/
 /********************************/
 
 /*********************************
 * Problem 1.1
-* Chage Integer type to String 
+* Change Integer type to String 
 * type.
 * params:
 * str (pointer)
 * returns integer type
 *********************************/
+// Compile === gcc -Wall -D TEST_1_1 /share/ex_data/ex5/test_ex5.c intString.c -o test_ex5_1_1
+// Test === test_ex5_1_1 , compare to = /share/ex_data/ex5/test_ex5_1_1.out
 int stringToInt(const char *str)
 {
     int i = 0;
@@ -94,4 +100,38 @@ int stringToInt(const char *str)
     }
 
     return convert;
+}
+
+/*********************************
+* Problem 1.2
+* Chack string if valid int
+* params:
+* str (pointer)
+* returns 1 if valid 0 if not
+*********************************/
+int isIntString(const char *str)
+{
+    int size = strlen(str);
+    int i = 0;
+    while (str[i])
+    {
+        if (i < size)
+        {
+            int digit = str[i];
+            if (digit < 48 || digit > 57)
+            {
+                if (str[i] != '-')
+                {
+                    return 0;
+                }
+                else if (i != 0 && str[i + 1] != '0')
+                {
+                    return 0;
+                }
+                return 0;
+            }
+        }
+        i++;
+    }
+    return 1;
 }
