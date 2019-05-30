@@ -126,8 +126,9 @@ int isIntString(const char *str)
         {
             if (ascii == 48 && i == 0)
             {
-                int next_ascii = str[i+1];
-                if (next_ascii <= 57 && 48 <= next_ascii){
+                int next_ascii = str[i + 1];
+                if (next_ascii <= 57 && 48 <= next_ascii)
+                {
                     return 0;
                 }
             }
@@ -212,6 +213,12 @@ int doOp(char *intStr1, const char *intStr2, char op)
             break;
         case '*':
             result = num1 * num2;
+            break;
+        case '/':
+            if (num2 == 0)
+            {
+                return 0;
+            }
             break;
         default:
             break;
