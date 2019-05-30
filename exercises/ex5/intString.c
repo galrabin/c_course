@@ -193,15 +193,15 @@ char *intToString(int num, char *buffer)
 // Test === test_ex5_1_4 , compare to = /share/ex_data/ex5/test_ex5_1_4.out
 int doOp(char *intStr1, char *intStr2, char op)
 {
-    if (!isIntString(intStr1) || isIntString(intStr2))
+    if (isIntString(intStr1) || isIntString(intStr2))
     {
         return 0;
     }
     else
     {
         double result = 0;
-        int num1 = stringToInt(intStr1);
-        int num2 = stringToInt(intStr2);
+        double num1 = stringToInt(intStr1);
+        double num2 = stringToInt(intStr2);
         switch (op)
         {
         case '+':
@@ -216,7 +216,7 @@ int doOp(char *intStr1, char *intStr2, char op)
         default:
             break;
         }
-        if (result > 2147483647 || result < -2147483648)
+        if (result > MAX_INT || result < MIN_INT)
         {
             return 0;
         }
