@@ -220,10 +220,10 @@ int main()
     printf("#############Integer to String###############\n");
     printf("#############################################\n");
     char test[33];
-    printf("Integer entered %d, string recieved: %s\n", 1234, intToString(1234, &test));
-    printf("Integer entered %d, string recieved: %s\n", -1234, intToString(-1234, &test));
-    printf("Integer entered %d, string recieved: %s\n", 10000, intToString(10000, &test));
-    printf("Integer entered %d, string recieved: %s\n\n", 0, intToString(0, &test));
+    printf("Integer entered %d, string recieved: %s\n", 1234, intToString(1234, test));
+    printf("Integer entered %d, string recieved: %s\n", -1234, intToString(-1234, test));
+    printf("Integer entered %d, string recieved: %s\n", 10000, intToString(10000, test));
+    printf("Integer entered %d, string recieved: %s\n\n", 0, intToString(0, test));
 
     return 0;
 }
