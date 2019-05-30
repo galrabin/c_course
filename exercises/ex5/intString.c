@@ -115,7 +115,6 @@ int stringToInt(const char *str)
 int isIntString(const char *str)
 {
     int size = strlen(str);
-    int i = 0;
     for (int i = 0; i < size; i++)
     {
         int ascii = str[i];
