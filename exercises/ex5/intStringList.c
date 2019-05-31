@@ -75,6 +75,11 @@ char *intToStringList(const int *numArray, int arrayLen, char *buffer)
 {
     char *buffer_to_return = buffer;
     char *current_buffer = buffer;
+    if (arrayLen == 0)
+    {
+        buffer[0] = (char)0;
+        buffer[1] = (char)0;
+    }
     for (int i = 0; i < arrayLen; i++)
     {
         current_buffer = intToString(numArray[i], current_buffer);
