@@ -148,15 +148,16 @@ char *nextIntString(char *intStringList)
 * res_inStr(pointer to result)
 * returns 1 if valid anser / 0 if not valid
 *******************************************/
-// Compile === gcc -Wall -D TEST_2_2 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_2
-// Test === test_ex5_2_2 , compare to = /share/ex_data/ex5/test_ex5_2_2.out
+// Compile === gcc -Wall -D TEST_2_3 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_3
+// Test === test_ex5_2_3 , compare to = /share/ex_data/ex5/test_ex5_2_3.out
 
 int doOpChain(char *intStrList, char op, char *res_intStr)
 {
-    if (op != '+' && op != '-' && op != '*' && op != '/'){
+    if (op != '+' && op != '-' && op != '*' && op != '/')
+    {
         return 0;
     }
-    
+
     nextIntString(NULL);
     strcpy(res_intStr, nextIntString(intStrList));
     char *current_int;
