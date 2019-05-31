@@ -257,79 +257,82 @@ int doOp(char *intStr1, const char *intStr2, char op)
     return 1;
 }
 
-// /********************************************
-// * Problem 2.1
-// * move integers array to char array to create
-// * integer list as defined in the mission.
-// * params:
-// * numArray (pointer to int array)
-// * arrayLen (integer)
-// * buffer (pointer to char array)
-// * returns pointer to list
-// **********************************************/
-// // Compile === gcc -Wall -D TEST_2_1 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_1
-// // Test === test_ex5_1_4 , compare to = /share/ex_data/ex5/test_ex5_2_1.out
-// char *intToStringList(const int *numArray, int arrayLen, char *buffer)
-// {
-//     char *buffer_to_return = buffer;
-//     char *current_buffer = buffer;
-//     if (arrayLen == 0)
-//     {
-//         buffer[0] = (char)0;
-//         buffer[1] = (char)0;
-//     }
-//     for (int i = 0; i < arrayLen; i++)
-//     {
-//         current_buffer = intToString(numArray[i], current_buffer);
+/********************************************
+* Problem 2.1
+* move integers array to char array to create
+* integer list as defined in the mission.
+* params:
+* numArray (pointer to int array)
+* arrayLen (integer)
+* buffer (pointer to char array)
+* returns pointer to list
+**********************************************/
+// Compile === gcc -Wall -D TEST_2_1 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_1
+// Test === test_ex5_1_4 , compare to = /share/ex_data/ex5/test_ex5_2_1.out
+char *intToStringList(const int *numArray, int arrayLen, char *buffer)
+{
+    char *buffer_to_return = buffer;
+    char *current_buffer = buffer;
+    if (arrayLen == 0)
+    {
+        buffer[0] = (char)0;
+        buffer[1] = (char)0;
+    }
+    for (int i = 0; i < arrayLen; i++)
+    {
+        current_buffer = intToString(numArray[i], current_buffer);
 
-//         int j = 0;
-//         while ((int)current_buffer[j] != 0)
-//         {
-//             current_buffer += 1;
-//         }
-//         current_buffer += 1;
-//     }
-//     current_buffer[0] = (char)0;
+        int j = 0;
+        while ((int)current_buffer[j] != 0)
+        {
+            current_buffer += 1;
+        }
+        current_buffer += 1;
+    }
+    current_buffer[0] = (char)0;
 
-//     return buffer_to_return;
-// }
+    return buffer_to_return;
+}
 
-// /*********************************
-// * Problem 2.2
-// * Change Integer type to String
-// * type.
-// * params:
-// * intStringList (pointer to int list)
-// * returns pointer to next integer
-// *********************************/
-// // Compile === gcc -Wall -D TEST_2_2 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_2
-// // Test === test_ex5_2_2 , compare to = /share/ex_data/ex5/test_ex5_2_2.out
-// char *nextIntString(char *intStringList)
-// {
-//     static char *last_list;
-//     static char *last_int;
-//     if (last_list != intStringList)
-//     {
-//         last_list = intStringList;
-//         last_int = intStringList;
-//         return last_int;
-//     }
-//     else
-//     {
-//         if (last_int[0] == (char)0){
-//             return last_int;
-//         }
-//         int j = 0;
-//         while (last_int[j] != (char)0)
-//         {
-//             j++;
-//         }
-//         last_int += j + 1;
-//         return last_int;
-//     }
+/*********************************
+* Problem 2.2
+* Change Integer type to String
+* type.
+* params:
+* intStringList (pointer to int list)
+* returns pointer to next integer
+*********************************/
+// Compile === gcc -Wall -D TEST_2_2 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_2
+// Test === test_ex5_2_2 , compare to = /share/ex_data/ex5/test_ex5_2_2.out
+char *nextIntString(char *intStringList)
+{
+    static char *last_list;
+    static char *last_int;
+    if (last_list != intStringList)
+    {
+        last_list = intStringList;
+        last_int = intStringList;
+        return last_int;
+    }
+    else
+    {
+        if (last_int[0] == (char)0)
+        {
+            return last_int;
+        }
+        int j = 0;
+        while (last_int[j] != (char)0)
+        {
+            j++;
+        }
+        last_int += j + 1;
+        return last_int;
+    }
 
-//     return last_list;
-// }
+    return last_list;
+}
+
+
 
 // int main(int argc, char const *argv[])
 // {
@@ -352,5 +355,10 @@ int doOp(char *intStr1, const char *intStr2, char op)
 //     char *h = nextIntString(c);
 //     printf("%d", h[0]);
 //     printf("%d\n", h[0]);
+
+//     char result[33];
+//     int x = doOpChain(c, 'd', result);
+//     printf("%d\n",x);
+//     printf("%s", result);
 //     return 0;
 // }

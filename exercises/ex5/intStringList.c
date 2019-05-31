@@ -55,6 +55,12 @@ char *intToStringList(const int *numArray, int arrayLen, char *buffer);
 *****************************************/
 char *nextIntString(char *intStringList);
 
+/****************************************
+* Problem 2.3
+* Performs arithmetics on the int list
+*****************************************/
+int doOpChain(char *intStrList, char op, char *res_intStr);
+
 /********************************/
 /**    FUNCTION DEFINITIONS    **/
 /********************************/
@@ -98,8 +104,8 @@ char *intToStringList(const int *numArray, int arrayLen, char *buffer)
 
 /*********************************
 * Problem 2.2
-* Change Integer type to String 
-* type.
+* Returns next integer pointer in 
+* in list.
 * params:
 * intStringList (pointer to int list)
 * returns pointer to next integer
@@ -131,4 +137,40 @@ char *nextIntString(char *intStringList)
         return last_int;
     }
     return last_list;
+}
+
+/*****************************************
+* Problem 2.3
+* Perform arithmetics on given list.
+* params:
+* intStringList (pointer to int list)
+* op (char)
+* res_inStr(pointer to result)
+* returns 1 if valid anser / 0 if not valid
+*******************************************/
+// Compile === gcc -Wall -D TEST_2_2 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_2
+// Test === test_ex5_2_2 , compare to = /share/ex_data/ex5/test_ex5_2_2.out
+
+int doOpChain(char *intStrList, char op, char *res_intStr)
+{
+    if (op != '+' && op != '-' && op != '*' && op != '/'){
+        return 0;
+    }
+    
+    nextIntString(NULL);
+    strcpy(res_intStr, nextIntString(intStrList));
+    char *current_int;
+    while (current_int[0] != (char)0)
+    {
+        current_int = nextIntString(intStrList);
+        if (current_int[0] != (char)0)
+        {
+            int result = doOp(res_intStr, current_int, op);
+            if (result == 0)
+            {
+                return 0;
+            }
+        }
+    }
+    return 1;
 }
