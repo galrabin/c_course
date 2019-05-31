@@ -91,7 +91,7 @@ char *intToStringList(const int *numArray, int arrayLen, char *buffer)
         }
         current_buffer += 1;
     }
-    current_buffer[1] = (char)0;
+    current_buffer[0] = (char)0;
 
     return buffer_to_return;
 }
