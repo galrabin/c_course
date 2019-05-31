@@ -195,11 +195,11 @@ char *intToString(int num, char *buffer)
     if (num == 0)
     {
         buffer[0] = (char)'0';
-        buffer[1] = '\0';
+        buffer[1] = (char)0;
         return buffer;
     }
     last_cell = intToStringRecursion(num, buffer);
-    last_cell[0] = '\0';
+    last_cell[0] = (char)0;
     return buffer;
 }
 
