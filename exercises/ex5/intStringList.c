@@ -69,7 +69,7 @@ char *nextIntString(const int *numArray, int arrayLen, char *buffer);
 * buffer (pointer to char array)
 * returns integer type
 *********************************/
-// Compile === gcc -Wall -D TEST_2_1 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_1_4
+// Compile === gcc -Wall -D TEST_2_1 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_1
 // Test === test_ex5_1_4 , compare to = /share/ex_data/ex5/test_ex5_2_1.out
 char *intToStringList(const int *numArray, int arrayLen, char *buffer)
 {
@@ -82,7 +82,6 @@ char *intToStringList(const int *numArray, int arrayLen, char *buffer)
         int j = 0;
         while ((int)current_buffer[j] != 0)
         {
-            int x = current_buffer[j];
             current_buffer += 1;
         }
         current_buffer += 1;
