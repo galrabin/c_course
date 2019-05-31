@@ -49,26 +49,26 @@ int doOp(char *intStr1, const char *intStr2, char op);
 
 char *intToStringList(const int *numArray, int arrayLen, char *buffer);
 
-/*********************************
+/****************************************
 * Problem 2.2
-* Copy int array to list array
-*********************************/
-char *nextIntString(const int *numArray, int arrayLen, char *buffer);
+* return pointer to next integerin list.
+*****************************************/
+char *nextIntString(char *intStringList);
 
 /********************************/
 /**    FUNCTION DEFINITIONS    **/
 /********************************/
 
-/*********************************
+/********************************************
 * Problem 2.1
-* Change Integer type to String 
-* type.
+* move integers array to char array to create
+* integer list as defined in the mission.
 * params:
 * numArray (pointer to int array)
 * arrayLen (integer)
 * buffer (pointer to char array)
-* returns integer type
-*********************************/
+* returns pointer to list
+**********************************************/
 // Compile === gcc -Wall -D TEST_2_1 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_1
 // Test === test_ex5_1_4 , compare to = /share/ex_data/ex5/test_ex5_2_1.out
 char *intToStringList(const int *numArray, int arrayLen, char *buffer)
@@ -94,4 +94,41 @@ char *intToStringList(const int *numArray, int arrayLen, char *buffer)
     current_buffer[0] = (char)0;
 
     return buffer_to_return;
+}
+
+/*********************************
+* Problem 2.2
+* Change Integer type to String 
+* type.
+* params:
+* intStringList (pointer to int list)
+* returns pointer to next integer
+*********************************/
+// Compile === gcc -Wall -D TEST_2_2 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_2
+// Test === test_ex5_2_2 , compare to = /share/ex_data/ex5/test_ex5_2_2.out
+char *nextIntString(char *intStringList)
+{
+    static char *last_list;
+    static char *last_int;
+    if (last_list != intStringList)
+    {
+        last_list = intStringList;
+        last_int = intStringList;
+        return last_int;
+    }
+    else
+    {
+        if (last_int[0] == (char)0)
+        {
+            return last_int;
+        }
+        int j = 0;
+        while (last_int[j] != (char)0)
+        {
+            j++;
+        }
+        last_int += j + 1;
+        return last_int;
+    }
+    return last_list;
 }
