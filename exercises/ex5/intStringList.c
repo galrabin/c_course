@@ -8,7 +8,7 @@
 
 #define MAX_INT 2147483647
 #define MIN_INT -2147483648
-
+#define SIZE 33
 /********************************/
 /**    FUNCTION DECLARATIONS   **/
 /********************************/
@@ -157,13 +157,12 @@ int doOpChain(char *intStrList, char op, char *res_intStr)
     {
         return 0;
     }
-
-    nextIntString(NULL);
+    char empty[] = {'e'};
+    nextIntString(empty);
     strcpy(res_intStr, nextIntString(intStrList));
-    char *current_int;
+    char *current_int = nextIntString(intStrList);
     while (current_int[0] != (char)0)
     {
-        current_int = nextIntString(intStrList);
         if (current_int[0] != (char)0)
         {
             int result = doOp(res_intStr, current_int, op);
@@ -172,6 +171,18 @@ int doOpChain(char *intStrList, char op, char *res_intStr)
                 return 0;
             }
         }
+        current_int = nextIntString(intStrList);
     }
     return 1;
 }
+
+// int main(int argc, char const *argv[])
+// {
+
+//     char result[33];
+//     char k[] = {'9', '2', '3', '4', '\0', '-', '9', '2', '5', '\0', '9', '3', '4', '\0', '\0', '\0', 't', 'w', 'o', '\0'};
+//     int x = doOpChain(k, '+', result);
+//     printf("%d\n", x);
+//     printf("%s", result);
+//     return 0;
+// }
