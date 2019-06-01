@@ -37,7 +37,7 @@ int doOpChain(char *intStrList, char op, char *res_intStr);
 * Problem 3
 * main function for calculate float by ops Performs arithmetics on the int list
 ***********************************************************************************/
-int main(int argc, char const *argv[]);
+// int main(int argc, char const *argv[]);
 
 int main() {
 
