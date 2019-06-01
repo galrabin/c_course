@@ -154,7 +154,7 @@ char *nextIntString(char *intStringList)
 int doOpChain(char *intStrList, char op, char *res_intStr)
 {
     char empty[] = {'e'};
-    if (op != '+' && op != '-' && op != '*' && op != '/')
+    if (op != '+' && op != '*' && op != '/')
     {
         return 0;
     }
@@ -178,5 +178,6 @@ int doOpChain(char *intStrList, char op, char *res_intStr)
         }
         current_int = nextIntString(intStrList);
     }
+    nextIntString(empty);
     return 1;
 }
