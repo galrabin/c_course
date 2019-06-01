@@ -37,7 +37,8 @@ int doOpChain(char *intStrList, char op, char *res_intStr);
 * Problem 3
 * main function for calculate float by ops Performs arithmetics on the int list
 ***********************************************************************************/
-int main();
+int main(int argc, char const *argv[]);
+
 
 /********************************/
 /**    FUNCTION DEFINITIONS    **/
@@ -49,8 +50,8 @@ int main();
 **********************************************/
 // Compile === gcc -Wall /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_3
 // Test === test_ex5_3 , compare to = /share/ex_data/ex5/test_ex5_3.out
-int main() {
-
+int main(int argc, char const *argv[])
+{ 
     char op;
     printf("Please enter an operator (+ or *) followed by up to 10 integer numbers.\n");
     scanf("%c ", &op);
