@@ -174,6 +174,7 @@ int doOpChain(char *intStrList, char op, char *res_intStr)
             int result = doOp(res_intStr, current_int, op);
             if (result == 0)
             {
+                nextIntString(empty);
                 return 0;
             }
         }
