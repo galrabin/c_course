@@ -63,7 +63,7 @@ int main(int argc, char const *argv[])
     double nums[MAX_NUMS];
     int input, check, space, current;
     for (int i = 0; i < MAX_NUMS; i++) {
-        input = scanf("%lf ", &nums[i]);
+        input = scanf("%lf", &nums[i]);
         check = nums[i];
         space = check - nums[i];
         if (!input || space != 0) {
