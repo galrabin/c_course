@@ -173,6 +173,7 @@ int doOpChain(char *intStrList, char op, char *res_intStr)
         }
         current_int = nextIntString(intStrList);
     }
+    nextIntString(empty);
     return 1;
 }
 
