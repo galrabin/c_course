@@ -156,6 +156,7 @@ int doOpChain(char *intStrList, char op, char *res_intStr)
     char empty[] = {'e'};
     if (op != '+' && op != '*' && op != '/')
     {
+        nextIntString(empty);
         return 0;
     }
     nextIntString(empty);
