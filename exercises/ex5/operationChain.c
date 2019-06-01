@@ -19,7 +19,7 @@
 * Declare main function
 * returns exit code 0
 *********************************/
-// Compile === gcc -Wall -D TEST_3 intString.c intStringList.c  operationChain.c -o test_ex5_3
+// Compile === gcc -Wall intString.c intStringList.c  operationChain.c -o test_ex5_3
 // Test === test_ex5_3 , compare to = /share/ex_data/ex5/test_ex5_3.out
 
 int main()
