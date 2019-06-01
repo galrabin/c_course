@@ -332,31 +332,57 @@ int doOp(char *intStr1, const char *intStr2, char op)
 //     return last_list;
 // }
 
-// int main(int argc, char const *argv[])
+// int doOpChain(char *intStrList, char op, char *res_intStr)
 // {
-//     int a[] = {12, 13, 14};
-//     int arrayLen = 3;
-//     char b[SIZE];
-//     char *c = intToStringList(a, arrayLen, b);
-//     char *d = nextIntString(c);
-//     printf("%c", d[0]);
-//     printf("%c\n", d[1]);
+//     if (op != '+' && op != '-' && op != '*' && op != '/')
+//     {
+//         return 0;
+//     }
 
-//     char *e = nextIntString(c);
-//     printf("%c", e[0]);
-//     printf("%c\n", e[1]);
-
-//     char *f = nextIntString(c);
-//     printf("%c", f[0]);
-//     printf("%c\n", f[1]);
-
-//     char *h = nextIntString(c);
-//     printf("%d", h[0]);
-//     printf("%d\n", h[0]);
-
-//     char result[33];
-//     int x = doOpChain(c, 'd', result);
-//     printf("%d\n",x);
-//     printf("%s", result);
-//     return 0;
+//     nextIntString(NULL);
+//     strcpy(res_intStr, nextIntString(intStrList));
+//     char *current_int;
+//     while (current_int[0] != (char)0)
+//     {
+//         current_int = nextIntString(intStrList);
+//         if (current_int[0] != (char)0)
+//         {
+//             int result = doOp(res_intStr, current_int, op);
+//             if (result == 0)
+//             {
+//                 return 0;
+//             }
+//         }
+//     }
+//     return 1;
 // }
+
+// // int main(int argc, char const *argv[])
+// // {
+// //     int a[] = {12, 13, 14};
+// //     int arrayLen = 3;
+// //     char b[SIZE];
+// //     char *c = intToStringList(a, arrayLen, b);
+// //     char *d = nextIntString(c);
+// //     printf("%c", d[0]);
+// //     printf("%c\n", d[1]);
+
+// //     char *e = nextIntString(c);
+// //     printf("%c", e[0]);
+// //     printf("%c\n", e[1]);
+
+// //     char *f = nextIntString(c);
+// //     printf("%c", f[0]);
+// //     printf("%c\n", f[1]);
+
+// //     char *h = nextIntString(c);
+// //     printf("%d", h[0]);
+// //     printf("%d\n", h[0]);
+
+// //     char result[33];
+// //     char k[] = {'9', '2', '3', '4', '\0', '-', '9', '2', '5', '\0', '9', '3', '4', '\0', '\0', '\0', 't', 'w', 'o', '\0'};
+// //     int x = doOpChain(k, '+', result);
+// //     printf("%d\n", x);
+// //     printf("%s", result);
+// //     return 0;
+// // }
