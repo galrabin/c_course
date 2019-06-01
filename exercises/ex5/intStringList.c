@@ -153,13 +153,17 @@ char *nextIntString(char *intStringList)
 
 int doOpChain(char *intStrList, char op, char *res_intStr)
 {
+    char empty[] = {'e'};
     if (op != '+' && op != '-' && op != '*' && op != '/')
     {
         return 0;
     }
-    char empty[] = {'e'};
-    nextIntString(empty);
-    strcpy(res_intStr, nextIntString(intStrList));
+    char *next = nextIntString(intStrList);
+    if (!isIntString(next))
+    {
+        return 0;
+    }
+    strcpy(res_intStr, next);
     char *current_int = nextIntString(intStrList);
     while (current_int[0] != (char)0)
     {
