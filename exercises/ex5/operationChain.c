@@ -49,93 +49,93 @@ int doOpChain(char *intStrList, char op, char *res_intStr);
 **********************************************/
 // Compile === gcc -Wall intString.c intStringList.c operationChain.c -o test_ex5_3
 // Test === test_ex5_3 , compare to = /share/ex_data/ex5/test_ex5_3.out
-int main() {
+// int main() {
 
-    char in;
-    printf("Please enter an operator (+ or *) followed by up to 10 integer numbers.\n");
-    scanf("%c ", &in);
-
-    if (in != '+' && in != '*') {
-        printf("Invalid operator %c\n", in);
-        return 1;
-    }
-
-    double arr[MAX_NUMS];
-    int upTo = 0;
-    int test, read;
-    for (int i = 0; i < MAX_NUMS; i++) {
-        read = scanf("%lf ", &arr[i]);
-        test = arr[i];
-        if ((!read) || (int) test - arr[i] != 0) {
-            if (i == 0) {
-                printf("No valid numbers were entered");
-                return 1;
-            }
-            break;
-        }
-        upTo++;
-    }
-
-    int intArr[upTo];
-
-    for (int i = 0; i < upTo; i++) {
-        intArr[i] = arr[i];
-    }
-
-    char intsAsStrings[(MAX_INT_LEN * MAX_NUMS) + 1];
-    intToStringList(intArr, upTo, intsAsStrings);
-
-    char resString[20];
-    int res = doOpChain(intsAsStrings, in, resString);
-    if (!res) {
-        printf("Result is out of bound\n");
-        return 1;
-    }
-    printf("= %s", resString);
-    return 0;
-}
-// int main(int argc, char const *argv[])
-// { 
-//     char op;
+//     char in;
 //     printf("Please enter an operator (+ or *) followed by up to 10 integer numbers.\n");
-//     scanf("%c ", &op);
+//     scanf("%c ", &in);
 
-//     if (!(op == '+') || (op == '*')) {
-//         printf("Invalid operator %c\n", op);
+//     if (in != '+' && in != '*') {
+//         printf("Invalid operator %c\n", in);
 //         return 1;
 //     }
 
-//     double nums[MAX_NUMS];
-//     int input, check, space, current;
+//     double arr[MAX_NUMS];
+//     int upTo = 0;
+//     int test, read;
 //     for (int i = 0; i < MAX_NUMS; i++) {
-//         input = scanf("%lf ", &nums[i]);
-//         check = nums[i];
-//         space = check - nums[i];
-//         if (!input || space != 0) {
+//         read = scanf("%lf ", &arr[i]);
+//         test = arr[i];
+//         if ((!read) || (int) test - arr[i] != 0) {
 //             if (i == 0) {
 //                 printf("No valid numbers were entered");
 //                 return 1;
 //             }
 //             break;
 //         }
-//         current++;
+//         upTo++;
 //     }
 
-//     int castNumsInt[current];
+//     int intArr[upTo];
 
-//     for (int i = 0; i < current; i++) {
-//         castNumsInt[i] = nums[i];
+//     for (int i = 0; i < upTo; i++) {
+//         intArr[i] = arr[i];
 //     }
 
-//     char numsCastStrings[(MAX_INT_LEN * MAX_NUMS) + 1];
-//     intToStringList(castNumsInt, current, numsCastStrings);
+//     char intsAsStrings[(MAX_INT_LEN * MAX_NUMS) + 1];
+//     intToStringList(intArr, upTo, intsAsStrings);
 
-//     char resultString[20];
-//     int res = doOpChain(numsCastStrings, op, resultString);
+//     char resString[20];
+//     int res = doOpChain(intsAsStrings, in, resString);
 //     if (!res) {
 //         printf("Result is out of bound\n");
 //         return 1;
 //     }
-//     printf("= %s", resultString);
+//     printf("= %s", resString);
 //     return 0;
 // }
+int main(int argc, char const *argv[])
+{ 
+    char op;
+    printf("Please enter an operator (+ or *) followed by up to 10 integer numbers.\n");
+    scanf("%c ", &op);
+
+    if (in != '+' && in != '*') {
+        printf("Invalid operator %c\n", op);
+        return 1;
+    }
+
+    double nums[MAX_NUMS];
+    int input, check, space, current;
+    for (int i = 0; i < MAX_NUMS; i++) {
+        input = scanf("%lf ", &nums[i]);
+        check = nums[i];
+        space = check - (int)(nums[i]);
+        if (!input || space != 0) {
+            if (i == 0) {
+                printf("No valid numbers were entered");
+                return 1;
+            }
+            break;
+        }
+        current++;
+    }
+
+    int castNumsInt[current];
+
+    for (int i = 0; i < current; i++) {
+        castNumsInt[i] = nums[i];
+    }
+
+    char numsCastStrings[(MAX_INT_LEN * MAX_NUMS) + 1];
+    intToStringList(castNumsInt, current, numsCastStrings);
+
+    char resultString[20];
+    int res = doOpChain(numsCastStrings, op, resultString);
+    if (!res) {
+        printf("Result is out of bound\n");
+        return 1;
+    }
+    printf("= %s", resultString);
+    return 0;
+}
