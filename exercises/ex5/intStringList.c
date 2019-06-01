@@ -158,6 +158,7 @@ int doOpChain(char *intStrList, char op, char *res_intStr)
     {
         return 0;
     }
+    nextIntString(empty);
     char *next = nextIntString(intStrList);
     if (!isIntString(next))
     {
