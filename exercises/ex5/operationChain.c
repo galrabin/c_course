@@ -91,6 +91,6 @@ int main(int argc, char const *argv[])
         printf("Result is out of bound\n");
         return 1;
     }
-    printf("= %s", resultString);
+    printf("= %s\n", resultString);
     return 0;
 }
