@@ -100,7 +100,7 @@ int main(int argc, char const *argv[])
     printf("Please enter an operator (+ or *) followed by up to 10 integer numbers.\n");
     scanf("%c ", &op);
 
-    if (in != '+' && in != '*') {
+    if (op != '+' && op != '*') {
         printf("Invalid operator %c\n", op);
         return 1;
     }
