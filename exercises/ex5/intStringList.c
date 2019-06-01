@@ -180,14 +180,3 @@ int doOpChain(char *intStrList, char op, char *res_intStr)
     nextIntString(empty);
     return 1;
 }
-
-// int main(int argc, char const *argv[])
-// {
-
-//     char result[33];
-//     char k[] = {'9', '2', '3', '4', '\0', '-', '9', '2', '5', '\0', '9', '3', '4', '\0', '\0', '\0', 't', 'w', 'o', '\0'};
-//     int x = doOpChain(k, '+', result);
-//     printf("%d\n", x);
-//     printf("%s", result);
-//     return 0;
-// }
