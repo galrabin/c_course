@@ -111,7 +111,7 @@ int main(int argc, char const *argv[])
         input = scanf("%lf ", &nums[i]);
         check = nums[i];
         space = check - (int)(nums[i]);
-        if (!input || space != 0) {
+        if ((!input) || (int) check - nums[i] != 0) {
             if (i == 0) {
                 printf("No valid numbers were entered");
                 return 1;
@@ -131,8 +131,8 @@ int main(int argc, char const *argv[])
     intToStringList(castNumsInt, current, numsCastStrings);
 
     char resultString[20];
-    int res = doOpChain(numsCastStrings, op, resultString);
-    if (!res) {
+    int status = doOpChain(numsCastStrings, op, resultString);
+    if (!status) {
         printf("Result is out of bound\n");
         return 1;
     }
