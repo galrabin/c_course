@@ -53,7 +53,7 @@ int main(int argc, char const *argv[])
 { 
     char op;
     printf("Please enter an operator (+ or *) followed by up to 10 integer numbers.\n");
-    scanf("%c", &op);
+    scanf("%c ", &op);
 
     if (!(op == '+') || (op == '*')) {
         printf("Invalid operator %c\n", op);
@@ -63,7 +63,7 @@ int main(int argc, char const *argv[])
     double nums[MAX_NUMS];
     int input, check, space, current;
     for (int i = 0; i < MAX_NUMS; i++) {
-        input = scanf("%lf", &nums[i]);
+        input = scanf("%lf ", &nums[i]);
         check = nums[i];
         space = check - nums[i];
         if (!input || space != 0) {
@@ -91,6 +91,6 @@ int main(int argc, char const *argv[])
         printf("Result is out of bound\n");
         return 1;
     }
-    printf("= %s\n", resultString);
+    printf("= %s", resultString);
     return 0;
 }
