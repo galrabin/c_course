@@ -1,3 +1,9 @@
+/*************************************************
+*  operationChain.c
+*  ----------
+*  main function for calculate float by ops
+*************************************************/
+
 #include <stdio.h>
 #include <string.h>
 
@@ -5,11 +11,36 @@
 #define MAX_NUMS 10
 #define MAX_INT_LEN 12
 
+/********************************/
+/**    FUNCTION DECLARATIONS   **/
+/********************************/
+/*********************************
+* Problem 1.4
+* Perform arithmetics on integer
+* string.
+*********************************/
+int doOp(char *intStr1, const char *intStr2, char op);
+
+/*********************************
+* Problem 2.1
+* Copy int array to list array
+*********************************/
 char *intToStringList(const int *numArray, int arrayLen, char *buffer);
 
+/****************************************
+* Problem 2.3
+* Performs arithmetics on the int list
+*****************************************/
 int doOpChain(char *intStrList, char op, char *res_intStr);
 
+/**********************************************************************************
+* Problem 3
+* main function for calculate float by ops Performs arithmetics on the int list
+***********************************************************************************/
 
+/********************************/
+/**    FUNCTION DEFINITIONS    **/
+/********************************/
 int main() {
 
     char op;

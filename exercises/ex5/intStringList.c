@@ -1,5 +1,5 @@
 /*************************************************
-*  intStringLisy.c
+*  intStringList.c
 *  ----------
 *  Create new data type called list integers
 *************************************************/
