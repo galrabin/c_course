@@ -27,7 +27,7 @@ int main()
     char op;
     float n1, n2, n3, n4, n5, n6, n7, n8, n9, n10;
     printf("Please enter an operator (+ or *) followed by up to 10 integer numbers.\n");
-    scanf("%c %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf", n1, n2, n3, n4, n5, n6, n7, n8, n9, n10);
+    scanf("%c %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf", &n1, &n2, &n3, &n4, &n5, &n6, &n7, &n8, &n9, &n10);
     printf("lf", n1);
 
     return 0;
