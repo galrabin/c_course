@@ -48,7 +48,7 @@ int main(int argc, char const *argv[]);
 * main function for calculate float
 * returns exit code
 **********************************************/
-// Compile === gcc -Wall /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_3
+// Compile === gcc -Wall intString.c intStringList.c operationChain.c -o test_ex5_3
 // Test === test_ex5_3 , compare to = /share/ex_data/ex5/test_ex5_3.out
 int main(int argc, char const *argv[])
 { 
@@ -64,9 +64,9 @@ int main(int argc, char const *argv[])
     double nums[MAX_NUMS];
     int input, check, space, current;
     for (int i = 0; i < MAX_NUMS; i++) {
-        check = scanf("%lf ", &nums[i]);
-        input = nums[i];
-        space = input - nums[i];
+        input = scanf("%lf ", &nums[i]);
+        check = nums[i];
+        space = check - nums[i];
         if (!input || space != 0) {
             if (i == 0) {
                 printf("No valid numbers were entered");
