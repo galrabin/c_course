@@ -47,8 +47,8 @@ int main();
 * main function for calculate float
 * returns exit code
 **********************************************/
-// Compile === gcc -Wall -D TEST_2_1 /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_2_1
-// Test === test_ex5_1_4 , compare to = /share/ex_data/ex5/test_ex5_2_1.out
+// Compile === gcc -Wall /share/ex_data/ex5/test_ex5.c intString.c intStringList.c -o test_ex5_3
+// Test === test_ex5_3 , compare to = /share/ex_data/ex5/test_ex5_3.out
 int main() {
 
     char op;
