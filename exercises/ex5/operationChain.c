@@ -37,63 +37,6 @@ int doOpChain(char *intStrList, char op, char *res_intStr);
 * Problem 3
 * main function for calculate float by ops Performs arithmetics on the int list
 ***********************************************************************************/
-// int main(int argc, char const *argv[]);
-
-/********************************/
-/**    FUNCTION DEFINITIONS    **/
-/********************************/
-/********************************************
-* Problem 3
-* main function for calculate float
-* returns exit code
-**********************************************/
-// Compile === gcc -Wall intString.c intStringList.c operationChain.c -o test_ex5_3
-// Test === test_ex5_3 , compare to = /share/ex_data/ex5/test_ex5_3.out
-// int main() {
-
-//     char in;
-//     printf("Please enter an operator (+ or *) followed by up to 10 integer numbers.\n");
-//     scanf("%c ", &in);
-
-//     if (in != '+' && in != '*') {
-//         printf("Invalid operator %c\n", in);
-//         return 1;
-//     }
-
-//     double arr[MAX_NUMS];
-//     int upTo = 0;
-//     int test, read;
-//     for (int i = 0; i < MAX_NUMS; i++) {
-//         read = scanf("%lf ", &arr[i]);
-//         test = arr[i];
-//         if ((!read) || (int) test - arr[i] != 0) {
-//             if (i == 0) {
-//                 printf("No valid numbers were entered");
-//                 return 1;
-//             }
-//             break;
-//         }
-//         upTo++;
-//     }
-
-//     int intArr[upTo];
-
-//     for (int i = 0; i < upTo; i++) {
-//         intArr[i] = arr[i];
-//     }
-
-//     char intsAsStrings[(MAX_INT_LEN * MAX_NUMS) + 1];
-//     intToStringList(intArr, upTo, intsAsStrings);
-
-//     char resString[20];
-//     int res = doOpChain(intsAsStrings, in, resString);
-//     if (!res) {
-//         printf("Result is out of bound\n");
-//         return 1;
-//     }
-//     printf("= %s", resString);
-//     return 0;
-// }
 int main(int argc, char const *argv[])
 { 
     char op;
