@@ -158,7 +158,15 @@ int copyMantissa(const char* intStr, char* mantissaBuff, int numDigits){
 }
 
 
-/*** Problem 1.4: allocate space for new BigInt object on the heap ***/
+/*** Problem 1.4:
+ * Create new structure of bigInt as defined
+ * Parameters:
+ * 1. intStr - receive number in string object.
+ * 2. numDigits - num of digits in mantissa.
+ * 
+ * returns: 
+ * return NULL if intStr isnt valid otherwise eturn bigInt structure
+ *  ***/
 // cat /share/ex_data/ex6/test_ex6_1_4.out
 BigInt newBigInt(const char* intStr, int numDigits){
     // check if it is a number
@@ -218,14 +226,23 @@ BigInt newBigInt(const char* intStr, int numDigits){
 }
 
 
-/*** Problem 1.5: free all space allocated by a given BigInt object ***/
+/*** Problem 1.5:
+ * Free pointer in heap that holds given bigInt structure
+ * Parameters:
+ * 1. bigInt - bigInt structure.
+ *  ***/
 // cat /share/ex_data/ex6/test_ex6_1_5.out
 void freeBigInt(BigInt bigInt){
     ourFree(bigInt->mantissa);
     ourFree(bigInt);
 }
 
-/*** Problem 1.6: print a given BigInt object in the following format: <sign><mantissa>e<exp> ***/
+/*** Problem 1.6:
+ * print a given BigInt object in the following format: <sign><mantissa>e<exp>
+ * Parameters:
+ * 1. bigInt - bigInt structure.
+ * 2. precition - precision of the number.
+ *  ***/
 // cat /share/ex_data/ex6/test_ex6_1_6.out
 void printBigInt(BigInt bigInt, int precision){
     if (precision <= 0){
@@ -250,7 +267,15 @@ void printBigInt(BigInt bigInt, int precision){
     printf("e%d",bigInt->exp);
 }
 
-/*** Problem 1.7: compare the values of two BigInt objects ***/
+/*** Problem 1.7:
+ * compare the values of two BigInt objects
+ * Parameters:
+ * 1. BigInt1 - bigInt1 structure.
+ * 2. BigInt2 - bigInt2 structure.
+ * 
+ * Returns:
+ * return 1 if BigInt1 bigger, -1 if BigInt2 is bigger, 0 both equal.
+ *  ***/
 // cat /share/ex_data/ex6/test_ex6_1_7.out
 int compareBigInt(BigInt bigInt1, BigInt bigInt2){
     if (bigInt1->sign == '-' && bigInt2->sign == '+') return -1;
@@ -285,7 +310,7 @@ int compareBigInt(BigInt bigInt1, BigInt bigInt2){
                     if (!(bigInt1->mantissa[i]) && bigInt2->mantissa[i]) return -1;
                     i++;
                 }
-            return 0;   
+                return 0;   
             }
         }   
     }  
