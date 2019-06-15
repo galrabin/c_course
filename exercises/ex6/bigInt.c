@@ -206,7 +206,7 @@ BigInt newBigInt(const char* intStr, int numDigits){
     if (numDigits <= 0 || numDigits > fullMantissaLength(intStr)){
         numDigits = fullMantissaLength(intStr);
     }
-    created->mantissa = ourMalloc(sizeof(char) * (numDigits + 1));
+    created->mantissa = ourMalloc(sizeof(char) * numDigits + 1);
     if (!created->mantissa){
         ourFree(created);
         return NULL;
