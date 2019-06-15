@@ -66,11 +66,12 @@ int fullMantissaLength(const char* intStr){
         if (intStr[i] == '0'){
             int new_pointer = i+1;
             char to_break = 0;
-            while (intStr[new_pointer] == '0'){
-                new_pointer++;
+            while (intStr[new_pointer] == '0' || intStr[new_pointer] == (char)0){
                 if (new_pointer == len){
                     to_break = 1;
                 }
+                new_pointer++;
+                
             }
             if (to_break == 1) break;
             else man_len++;
@@ -129,17 +130,23 @@ int copyMantissa(const char* intStr, char* mantissaBuff, int numDigits){
     {
         if (intStr[i] == '0'){
             int checker = i + 1;
-            int to_continue = 0;
-            while (checker < numDigits)
+            int to_continue = 1;
+            while (checker < strlen(intStr))
             {
                 if ('0' < intStr[checker] && intStr[checker] <= '9'){
-                    to_continue = 1;
+                   int is_too_big = checker - i + j;
+                   if (is_too_big > numDigits){
+                       to_continue = 0;
+                   } else
+                   {
+                       to_continue = 1;
+                   }
                 }
                 checker++;
             }
-            if (to_continue != 1) break;
+            if (to_continue == 0) break;
             else{
-                mantissaBuff[i] = '0';
+                mantissaBuff[j] = '0';
                 i++;
                 j++;
             } 
